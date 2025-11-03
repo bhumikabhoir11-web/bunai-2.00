@@ -1,0 +1,88 @@
+Compile project in Jenkins using Maven.(4)
+Step 1: 
+Go to new item -> create a freestyle project
+Step 2: 
+Under source code management choose git and paste the url repo there
+https://github.com/bhumikabhoir11-web/maven-project.git
+Step 3: 
+Under build steps in goals write “clean install”
+Step 4: apply and save
+Step 5: build now
+
+Build pipeline project in Jenkins(8)
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Compile') {
+            steps {
+                echo "Compiling project..."
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building project..."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying application..."
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline executed successfully!"
+        }
+        failure {
+            echo "Pipeline failed!"
+        }
+    }
+}
+
+Set up a basic CI pipeline using a CI/CD tool (e.g., Jenkins), Configure the pipeline to build a simple project (e.g., a "Hello World" application).(16)
+
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello CI Pipeline!");
+    }
+}
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo "Fetching code from local folder..."
+                bat 'dir C:\\HelloPipeline'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Compiling Hello.java..."
+                bat 'javac C:\\HelloPipeline\\Hello.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                echo "Running application..."
+                bat 'java -cp C:\\HelloPipeline Hello'
+            }
+        }
+    }
+}
+
+
