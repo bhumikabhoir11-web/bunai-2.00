@@ -1,3 +1,8 @@
+mvn archetype:generate -DgroupId=com.example -DartifactId=myapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+
+
 Compile project in Jenkins using Maven.(4)
 Step 1: 
 Go to new item -> create a freestyle project
